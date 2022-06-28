@@ -30,9 +30,9 @@ def contents_of_file(filename):
   create_file(filename)
 
   # Open the file
-  with open(filename) as file:
+  with open(filename, "r", newline='') as f:
     # Read the rows of the file into a dictionary
-    reader = csv.DictReader(file)
+    reader = csv.DictReader(f, delimiter=",")
     # Process each item of the dictionary
     for row in reader:
       return_string += "a {} {} is {}\n".format(row["color"], row["name"], row["type"])
